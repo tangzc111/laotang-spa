@@ -1,0 +1,43 @@
+{
+  "biome.enabled": true,
+  // 启用保存时执行的代码操作（包括导入排序）
+  "editor.codeActionsOnSave": {
+    // 这是告诉 VS Code 在保存时运行 Biome 的 organizeImports 功能的关键设置
+    "source.organizeImports": "explicit"
+  },
+  // ----------------------------------------------------
+  // 1. 设置 Biome 为 JavaScript/TypeScript 的默认格式化工具
+  // ----------------------------------------------------
+  "[javascript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+
+  // ----------------------------------------------------
+  // 2. 设置 Prettier 为其他语言的默认格式化工具
+  // ----------------------------------------------------
+  "[json]": {
+    // 假设你使用 Prettier 作为 JSON 的格式化工具
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  // 确保全局的默认格式化工具仍然是 Prettier (如果不确定，可以这样设置)
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+}

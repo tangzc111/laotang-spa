@@ -7,7 +7,13 @@
     "client:prod": "webpack --mode production",
     "client:server": "webpack serve --mode development",
     "test:e2e": "cypress open",
-    "test": "jest tests/unit --collectCoverage --reporters default jest-stare"
+    "test": "jest tests/unit --collectCoverage --reporters default jest-stare",
+    "lint": "biome lint .",
+    "lint:fix": "biome lint --write .",
+    "format": "biome format .",
+    "format:fix": "biome format --write .",
+    "check": "biome check .",
+    "check:fix": "biome check --write ."
   },
   "keywords": [],
   "author": "",
@@ -17,13 +23,8 @@
     "coverageLink": "../jest-coverage/lcov-report/index.html",
     "resultDir": "docs/jest-stare"
   },
-  "dependencies": {
-    "immer": "^11.0.1",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0",
-    "react-router-dom": "^7.9.6"
-  },
   "devDependencies": {
+    "@biomejs/biome": "^2.3.8",
     "@swc/core": "^1.15.3",
     "@swc/jest": "^0.2.39",
     "@types/jest": "^30.0.0",
@@ -40,5 +41,11 @@
     "webpack-dev-server": "^5.2.2",
     "webpack-merge": "^6.0.1",
     "yargs-parser": "^22.0.0"
+  },
+  "dependencies": {
+    "immer": "^11.0.1",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-router-dom": "^7.9.6"
   }
 }
