@@ -1,0 +1,44 @@
+{
+  "$schema": "https://swc.rs/schema.json",
+  "jsc": {
+    "parser": {
+      "syntax": "typescript",
+      "tsx": true,
+      "decorators": true,
+      "dynamicImport": true
+      //   "privateMethod": false,
+      //   "functionBind": false,
+      //   "exportDefaultFrom": false,
+      //   "exportNamespaceFrom": false,
+      //   "decoratorsBeforeExport": false,
+      //   "topLevelAwait": false,
+      //   "importMeta": false
+    },
+    "transform": {
+      "legacyDecorator": true,
+      "decoratorMetadata": true,
+      "react": {
+        "runtime": "automatic",
+        "refresh": true,
+        "development": false,
+        "pragma": "React.createElement",
+        "pragmaFrag": "React.Fragment"
+      }
+    },
+    "target": "es2022",
+    "loose": true,
+    "externalHelpers": true,
+    // Requires v1.2.50 or upper and requires target to be es2016 or upper.
+    "keepClassNames": true
+  },
+  "module": {
+    "type": "es6",
+    "strict": true,
+    "strictMode": true,
+    "lazy": true,
+    "noInterop": false
+  },
+  "minify": true,
+  "sourceMaps": true,
+  "exclude": ["node_modules", ".git", "dist"]
+}

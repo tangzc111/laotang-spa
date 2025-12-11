@@ -1,0 +1,85 @@
+{
+  "numFailedTestSuites": 0,
+  "numFailedTests": 0,
+  "numPassedTestSuites": 1,
+  "numPassedTests": 1,
+  "numPendingTestSuites": 0,
+  "numPendingTests": 0,
+  "numRuntimeErrorTestSuites": 0,
+  "numTodoTests": 0,
+  "numTotalTestSuites": 1,
+  "numTotalTests": 1,
+  "openHandles": [],
+  "snapshot": {
+    "added": 0,
+    "didUpdate": false,
+    "failure": false,
+    "filesAdded": 0,
+    "filesRemoved": 0,
+    "filesRemovedList": [],
+    "filesUnmatched": 0,
+    "filesUpdated": 0,
+    "matched": 0,
+    "total": 0,
+    "unchecked": 0,
+    "uncheckedKeysByFile": [],
+    "unmatched": 0,
+    "updated": 0
+  },
+  "startTime": 1764757774551,
+  "success": false,
+  "testResults": [
+    {
+      "leaks": false,
+      "numFailingTests": 0,
+      "numPassingTests": 1,
+      "numPendingTests": 0,
+      "numTodoTests": 0,
+      "openHandles": [],
+      "perfStats": {
+        "end": 1764757774649,
+        "loadTestEnvironmentEnd": 1764757774590,
+        "loadTestEnvironmentStart": 1764757774573,
+        "runtime": 59,
+        "setupAfterEnvEnd": 1764757774645,
+        "setupAfterEnvStart": 1764757774627,
+        "setupFilesEnd": 1764757774590,
+        "setupFilesStart": 1764757774590,
+        "slow": false,
+        "start": 1764757774590
+      },
+      "skipped": false,
+      "snapshot": {
+        "added": 0,
+        "fileDeleted": false,
+        "matched": 0,
+        "unchecked": 0,
+        "uncheckedKeys": [],
+        "unmatched": 0,
+        "updated": 0
+      },
+      "testFilePath": "/Users/laotang/Learning/jcyd34/homework/laotang-spa/tests/unit/index.spec.ts",
+      "testResults": [
+        {
+          "ancestorTitles": [
+            "综合性的测试"
+          ],
+          "duration": 1,
+          "failing": false,
+          "failureDetails": [],
+          "failureMessages": [],
+          "fullName": "综合性的测试 简单的测试",
+          "invocations": 1,
+          "location": null,
+          "numPassingAsserts": 1,
+          "retryReasons": [],
+          "startAt": 1764757774647,
+          "status": "passed",
+          "title": "简单的测试"
+        }
+      ],
+      "failureMessage": null
+    }
+  ],
+  "wasInterrupted": false
+}
