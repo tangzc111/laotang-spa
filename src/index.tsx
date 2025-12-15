@@ -2,8 +2,8 @@ import App from '@pages/App';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 
-// import "./wdyr.tsx";
-// import "./style.css";
+import "./index.css";
+import "./wdyr.tsx";
 
 const container = document.getElementById('app');
 if (!container) {

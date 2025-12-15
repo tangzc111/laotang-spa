@@ -117,8 +117,8 @@ const About = () => {
 				{/* Contact CTA */}
 				<div className="mt-12 text-center">
 					<div className="inline-block bg-gradient-to-r from-primary-600 to-secondary-600 rounded-2xl p-8 shadow-xl">
-						<h3 className="text-2xl font-bold text-white mb-3">想要了解更多？</h3>
-						<p className="text-white/90 mb-6">欢迎与我们联系，探讨合作机会</p>
+						<h3 className="text-2xl font-bold mb-3">想要了解更多？</h3>
+						<p className="mb-6">欢迎与我们联系，探讨合作机会</p>
 						<button
 							type="button"
 							className="px-8 py-3 bg-white text-primary-600 rounded-xl font-semibold hover:bg-gray-50 active:scale-95 transition-all duration-200 shadow-lg"

@@ -6,13 +6,6 @@
       "tsx": true,
       "decorators": true,
       "dynamicImport": true
-      //   "privateMethod": false,
-      //   "functionBind": false,
-      //   "exportDefaultFrom": false,
-      //   "exportNamespaceFrom": false,
-      //   "decoratorsBeforeExport": false,
-      //   "topLevelAwait": false,
-      //   "importMeta": false
     },
     "transform": {
       "legacyDecorator": true,
@@ -28,7 +21,6 @@
     "target": "es2022",
     "loose": true,
     "externalHelpers": true,
-    // Requires v1.2.50 or upper and requires target to be es2016 or upper.
     "keepClassNames": true
   },
   "module": {

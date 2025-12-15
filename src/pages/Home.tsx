@@ -1,9 +1,8 @@
-// import Demo from "@components/demo/Index";
-import { memo } from "react";
+import Demo from '@components/demo/Index';
+import { memo } from 'react';
 
 const Home = () => {
-	// return <Demo />;
-	return <div>Home Page</div>;
+	return <Demo />;
 };
 
 export default memo(Home);

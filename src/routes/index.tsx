@@ -5,7 +5,7 @@ import type { RouteObject } from "react-router-dom";
 
 const Home = lazy(() => import("@pages/Home"));
 const About = lazy(() => import("@pages/About"));
-// const Demo = lazy(() => import("@pages/Demo"));
+const Demo = lazy(() => import("@pages/Demo"));
 
 const routes: RouteObject[] = [
 	{
@@ -28,14 +28,14 @@ const routes: RouteObject[] = [
 					</Suspense>
 				),
 			},
-			// {
-			// 	path: "demo",
-			// 	element: (
-			// 		<Suspense fallback={<Loading />}>
-			// 			<Demo />
-			// 		</Suspense>
-			// 	),
-			// },
+			{
+				path: "demo",
+				element: (
+					<Suspense fallback={<Loading />}>
+						<Demo />
+					</Suspense>
+				),
+			},
 		],
 	},
 	{

@@ -6,7 +6,7 @@
     "useIgnoreFile": true
   },
   "files": {
-    "includes": ["*.ts", "*.tsx", "src/**/*"]
+    "includes": ["*.ts", "*.js", "*.tsx", "src/**/*"]
   },
   "formatter": {
     "enabled": true,
@@ -32,6 +32,11 @@
       "quoteProperties": "asNeeded",
       "semicolons": "always",
       "trailingCommas": "es5"
+    }
+  },
+  "css": {
+    "parser": {
+      "tailwindDirectives": true
     }
   },
   "assist": {

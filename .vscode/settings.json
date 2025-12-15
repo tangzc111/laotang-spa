@@ -37,6 +37,8 @@
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  // Allow Tailwind v4 at-rules like @theme without red squiggles
+  "css.lint.unknownAtRules": "ignore",
 
   // 确保全局的默认格式化工具仍然是 Prettier (如果不确定，可以这样设置)
   "editor.defaultFormatter": "esbenp.prettier-vscode"
