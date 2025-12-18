@@ -67,5 +67,8 @@
     "react-dom": "^19.2.0",
     "react-router-dom": "^7.9.6",
     "scripty": "^3.0.0"
+  },
+  "engines": {
+    "yarn": "1.22.22"
   }
 }
