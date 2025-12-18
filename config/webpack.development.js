@@ -23,6 +23,14 @@ module.exports = {
         warnings: false,
       },
     },
+    proxy: [
+      {
+        context: ["/api"],
+        target: "https://www.tzcgws.xyz",
+        changeOrigin: true,
+        secure: false,
+      },
+    ],
   },
   output: {
     publicPath: "/",

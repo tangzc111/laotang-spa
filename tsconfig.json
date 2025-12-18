@@ -27,7 +27,8 @@
       "@components/*": ["src/components/*"],
       "@abis/*": ["src/abis/*"],
       "@stores/*": ["src/stores/*"],
-      "@connections/*": ["src/connections/*"]
+      "@connections/*": ["src/connections/*"],
+      "@apis/*": ["src/apis/*"]
     }
   },
 

@@ -56,6 +56,7 @@ const webpackBaseConfig = {
 			'@connections': resolve('src/connections'),
 			'@abis': resolve('src/abis'),
 			'@types': resolve('src/types'),
+			'@apis': resolve('src/apis'),
 		},
 		extensions: ['.js', '.ts', '.tsx', '.jsx', '.css'],
 		fallback: {

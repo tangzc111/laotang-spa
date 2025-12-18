@@ -1,16 +1,16 @@
 import { Loading, PageNotFoundView } from "@components/common";
-import MainLayout from "@layouts/Layout";
+// import MainLayout from "@layouts/Layout";
 import { lazy, Suspense } from "react";
 import type { RouteObject } from "react-router-dom";
 
 const Home = lazy(() => import("@pages/Home"));
-const About = lazy(() => import("@pages/About"));
-const Demo = lazy(() => import("@pages/Demo"));
+// const About = lazy(() => import("@pages/About"));
+// const Demo = lazy(() => import("@pages/Demo"));
 
 const routes: RouteObject[] = [
 	{
 		path: "/",
-		element: <MainLayout />,
+		// element: <MainLayout />,
 		children: [
 			{
 				index: true,
@@ -20,22 +20,22 @@ const routes: RouteObject[] = [
 					</Suspense>
 				),
 			},
-			{
-				path: "about",
-				element: (
-					<Suspense fallback={<Loading />}>
-						<About />
-					</Suspense>
-				),
-			},
-			{
-				path: "demo",
-				element: (
-					<Suspense fallback={<Loading />}>
-						<Demo />
-					</Suspense>
-				),
-			},
+			// {
+			// 	path: "about",
+			// 	element: (
+			// 		<Suspense fallback={<Loading />}>
+			// 			<About />
+			// 		</Suspense>
+			// 	),
+			// },
+			// {
+			// 	path: "demo",
+			// 	element: (
+			// 		<Suspense fallback={<Loading />}>
+			// 			<Demo />
+			// 		</Suspense>
+			// 	),
+			// },
 		],
 	},
 	{
