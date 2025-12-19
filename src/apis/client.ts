@@ -1,4 +1,18 @@
-const BASE_URL = process.env.NODE_ENV === "development" ? "" : "https://www.tzcgws.xyz";
+// Default to same-origin; allow override via env or runtime switcher.
+const readEnv = (key: string) => {
+	if (typeof process !== "undefined" && process.env) {
+		return process.env[key];
+	}
+	return undefined;
+};
+
+const DEFAULT_BASE_URL = readEnv("API_BASE_URL") ?? (readEnv("NODE_ENV") === "development" ? "" : "https://www.tzcgws.xyz");
+let baseUrl = DEFAULT_BASE_URL;
+
+export const getBaseUrl = () => baseUrl;
+export const setBaseUrl = (url: string) => {
+	baseUrl = url || "";
+};
 
 type HttpMethod = "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
 
@@ -27,7 +41,7 @@ export async function request<T>(path: string, options: RequestOptions = {}): Pr
 		computedHeaders.set("Content-Type", "application/json");
 	}
 
-	const response = await fetch(`${BASE_URL}${path}`, {
+	const response = await fetch(`${baseUrl}${path}`, {
 		method: normalizedMethod,
 		headers: computedHeaders,
 		body: (body && !(body instanceof FormData) ? JSON.stringify(body) : body) as BodyInit | null,
@@ -66,5 +80,3 @@ export async function request<T>(path: string, options: RequestOptions = {}): Pr
 	// Allow void returns (e.g. DELETE 204) but still unwrap envelope.
 	return (payload.data ?? (undefined as T)) as T;
 }
-
-export { BASE_URL };

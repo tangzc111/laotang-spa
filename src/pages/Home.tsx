@@ -2,8 +2,24 @@ import type { GithubProfile } from '@/apis/ghApi';
 import { fetchGithubProfile } from '@/apis/ghApi';
 import type { User } from '@apis/User';
 import { createUser, deleteUser, getUsers } from '@apis/User';
+import { getBaseUrl, setBaseUrl } from '@apis/client';
 import type { FormEvent } from 'react';
 import { memo, useCallback, useEffect, useMemo, useState } from 'react';
+
+type SourceKey = 'serverless' | 'ec2';
+
+const DATA_SOURCES: Record<SourceKey, { label: string; url: string; note: string }> = {
+	serverless: {
+		label: 'Serverless',
+		url: 'https://82wz58w5xa.execute-api.us-west-2.amazonaws.com/dev',
+		note: 'API Gateway (serverless)',
+	},
+	ec2: {
+		label: 'EC2',
+		url: 'https://www.tzcgws.xyz',
+		note: 'EC2 host',
+	},
+};
 
 const getErrorMessage = (error: unknown) => {
 	if (error && typeof error === 'object' && 'message' in error) {
@@ -13,6 +29,10 @@ const getErrorMessage = (error: unknown) => {
 };
 
 const Home = () => {
+	const initialSource =
+		(Object.entries(DATA_SOURCES).find(([, value]) => value.url === getBaseUrl())?.[0] as SourceKey | undefined) ??
+		'ec2';
+	const [apiSource, setApiSource] = useState<SourceKey>(initialSource);
 	const [users, setUsers] = useState<User[]>([]);
 	const [usersError, setUsersError] = useState<string | null>(null);
 	const [usersLoading, setUsersLoading] = useState(false);
@@ -25,6 +45,10 @@ const Home = () => {
 	const [githubProfile, setGithubProfile] = useState<GithubProfile | null>(null);
 	const [githubError, setGithubError] = useState<string | null>(null);
 	const [githubLoading, setGithubLoading] = useState(false);
+
+	useEffect(() => {
+		setBaseUrl(DATA_SOURCES[apiSource].url);
+	}, [apiSource]);
 
 	const loadUsers = useCallback(async () => {
 		setUsersLoading(true);
@@ -42,6 +66,16 @@ const Home = () => {
 	useEffect(() => {
 		void loadUsers();
 	}, [loadUsers]);
+
+	const handleSwitchSource = (source: SourceKey) => {
+		if (source === apiSource) return;
+		const nextUrl = DATA_SOURCES[source].url;
+		setBaseUrl(nextUrl);
+		setApiSource(source);
+		setUsersError(null);
+		setGithubError(null);
+		void loadUsers();
+	};
 
 	const handleCreateUser = async (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
@@ -128,6 +162,46 @@ const Home = () => {
 						</button>
 					</div>
 				</header>
+
+				<div className='rounded-2xl border border-white/10 bg-white/5 p-5 shadow-xl backdrop-blur'>
+					<div className='flex flex-col gap-3 md:flex-row md:items-center md:justify-between'>
+						<div className='space-y-1'>
+							<p className='text-sm font-semibold text-white'>数据源切换</p>
+							<p className='text-xs text-slate-300'>选择后会更新 Base URL 并重新加载数据。</p>
+						</div>
+						<div className='flex flex-wrap gap-3'>
+							{(Object.entries(DATA_SOURCES) as [SourceKey, { label: string; url: string; note: string }][]).map(
+								([key, value]) => {
+									const active = apiSource === key;
+									return (
+										<button
+											key={key}
+											type='button'
+											onClick={() => handleSwitchSource(key)}
+											className={`min-w-[200px] rounded-xl border px-4 py-3 text-left transition focus:outline-none focus:ring-2 focus:ring-cyan-400/50 ${
+												active
+													? 'border-cyan-400/60 bg-cyan-500/20 text-white shadow-lg shadow-cyan-500/30'
+													: 'border-white/10 bg-white/5 text-slate-200 hover:border-cyan-300/40 hover:bg-white/10'
+											}`}
+										>
+											<div className='flex items-center justify-between'>
+												<span className='text-sm font-semibold'>{value.label}</span>
+												{active ? (
+													<span className='h-2 w-2 rounded-full bg-cyan-300 shadow-[0_0_12px_rgba(34,211,238,0.8)]' />
+												) : null}
+											</div>
+											<p className='text-xs text-slate-300'>{value.note}</p>
+											<p className='mt-1 text-[11px] text-slate-400'>{value.url}</p>
+										</button>
+									);
+								}
+							)}
+						</div>
+					</div>
+					<p className='mt-3 text-xs text-slate-300'>
+						当前 Base URL：<span className='text-cyan-200'>{DATA_SOURCES[apiSource].url}</span>
+					</p>
+				</div>
 
 				<section className='grid gap-6 md:grid-cols-5'>
 					<div className='md:col-span-3 space-y-4 rounded-2xl border border-white/10 bg-white/5 p-6 shadow-xl backdrop-blur'>

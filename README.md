@@ -41,7 +41,7 @@
 ## 项目结构
 
 ```
-yideng-spa/
+laotang-spa/
 ├── src/                        # 源代码目录
 │   ├── abis/                   # 智能合约 ABI 文件
 │   ├── components/             # React 组件
